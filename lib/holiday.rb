@@ -1,34 +1,36 @@
 require 'pry'
 def second_supply_for_fourth_of_july(holiday_hash)
-  # given that holiday_hash looks like this:
-  # {
-  #   :winter => {
-  #     :christmas => ["Lights", "Wreath"],
-  #     :new_years => ["Party Hats"]
-  #   },
-  #   :summer => {
-  #     :fourth_of_july => ["Fireworks", "BBQ"]
-  #   },
-  #   :fall => {
-  #     :thanksgiving => ["Turkey"]
-  #   },
-  #   :spring => {
-  #     :memorial_day => ["BBQ"]
-  #   }
-  # }
-  # return the second element in the 4th of July array
+  given that holiday_hash looks like this:
+  holiday_hash = {
+    :winter => {
+      :christmas => ["Lights", "Wreath"],
+      :new_years => ["Party Hats"]
+    },
+    :summer => {
+      :fourth_of_july => ["Fireworks", "BBQ"]
+    },
+    :fall => {
+      :thanksgiving => ["Turkey"]
+    },
+    :spring => {
+      :memorial_day => ["BBQ"]
+    }
+  }
+
+  {memorial_day: BBQ}
+  return the second element in the 4th of July array
   holiday_hash[:summer][:fourth_of_july][1]
 end
 
-def add_supply_to_winter_holidays(holiday_hash, supply)
+def add_supply_to_winter_holidays(holiday_hash, ooga)
   # holiday_hash is identical to the one above
 
   # add the second argument, which is a supply, to BOTH the
   # Christmas AND the New Year's arrays
-  holiday_hash.each do |season, holidays|
+  holiday_hash.each do {|season, holidays| season == :winter}
     if season == :winter
       holidays.each do |holiday, supplies|
-        supplies.push(supply)
+        supplies.push(ooga)
       end
     end
   end
@@ -55,6 +57,7 @@ end
 def all_winter_holiday_supplies(holiday_hash)
   # return an array of all of the supplies that are used in the winter season
  christmas_supp = holiday_hash[:winter][:christmas]
+ binding.pry
  new_years_supp = holiday_hash[:winter][:new_years]
 
  christmas_supp + new_years_supp
